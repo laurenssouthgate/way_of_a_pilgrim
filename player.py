@@ -19,7 +19,8 @@ class Player :
         self.wrath = random.randint(0, 20)
         self.envy = random.randint(0, 20)
         self.pride = random.randint(0, 20)
-       
+
+        self.health = 100
         self.inventory = ["Psalter", "Prayer rope"]
         self.journal = []
 
@@ -41,5 +42,37 @@ class Player :
         print(f"Wrath: {self.wrath}")
         print(f"Envy: {self.envy}")
         print(f"Pride: {self.pride}")
+
+    def show_health(self) :
+        print(f"Your health is at: {self.health}")
+
+    def show_inventory(self) :
+        if not self.inventory :
+            print("You have nothing in your inventory")
+        else :
+            for item in self.inventory :
+                print(item)
+
+    def take_damage(self, amount) :
+        self.health = max(self.health - amount, 0)
+
+    def increase_stat(self, stat, amount) :
+        if hasattr(self, stat) :
+            current = getattr(self, stat)
+            new_val = max(0, min(100, current + amount))
+            setattr(self, new_val)
+        else :
+            print(f"Error stat: {stat} doesn't exist")
+
+    def decrease_stat(self, stat, amount) :
+        if hasattr(self, stat) :
+            current = getattr(self, stat)
+            new_val = max(0, min(100, current - amount))
+            setattr(self, new_val)
+        else :
+            print(f"Error stat: {stat} doesn't exist")
+
+    def clear_inventory(self) :
+        self.inventory = []
         
 
