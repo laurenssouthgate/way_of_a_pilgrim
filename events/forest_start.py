@@ -30,8 +30,27 @@ class ForestStart(Event) :
         present_choices(self.choices, player)
 
     def revenge(self, player) :
-        player.decrease_stat("kindness", 10)
+        player.decrease_stat("kindness", 7)
+        player.decrease_stat("temperance", 5)
+        player.decrease_stat("humility", 7)
         player.increase_stat("wrath", 10)
+        player.increase_stat("pride", 7)
+        print("\nYou give in to the sense of anger at the situation, and begin in earnest to search the surroundings for any sign that might lead to you the perpetrators")
+        print("\nYou notice two sets of footprints going off along the path")
+
+        choices = [
+            Choice("Follow the footprints and see where they lead", follow(player)),
+            Choice("Give it up and commit yourself to God", give_up(player))
+        ]
+
+        present_choices(choices, player)
+
+        def follow(player) :
+            pass
+
+        def give_up(player) :
+            pass 
+
 
 
 
