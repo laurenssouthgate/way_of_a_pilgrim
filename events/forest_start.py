@@ -47,11 +47,12 @@ class ForestStart(Event) :
         present_choices(choices, player)
 
         def follow(player) :
-            pass
+            print("You follow the tracks, clutching your empty knapsack, the anger building inside you eclipses the pain you feel from your injuries. You walk in a half-trance, following the footsteps in the mud. After a while you arrive at a small village.")
+            
 
-        def give_up(player) :
-            pass 
-    
+        def give_up(self, player) :
+            self.pray(self, player)
+            
     def pray(self, player) :
         player.increase_stat("dilligence", 3)
         player.increase_stat("humility", 5)
@@ -73,7 +74,6 @@ class ForestStart(Event) :
             pass
 
     def call_for_help(self, player) :
-        pass
-
+        print("\nYou panic as you feel the dried blood on your forehead. 'Help! is anyone there?' you cry, 'heeeelp!'")
 
 
